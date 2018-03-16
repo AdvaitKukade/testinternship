@@ -2,11 +2,17 @@
 
 using namespace emscripten;
 
-float multiply(float a, float b) 
+extern "C" 
 {
-    return a*b;
+	extern float multiply_in_js(float x,float y);
 }
 
-EMSCRIPTEN_BINDINGS(my_module) {
+float multiply(float a, float b) 
+{
+	return multiply_in_js(a,b);
+}
+
+EMSCRIPTEN_BINDINGS(my_module) 
+{
     function("multiply", &multiply);
 }

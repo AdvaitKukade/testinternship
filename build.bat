@@ -1,1 +1,1 @@
-emcc --bind -o multiplication.js multiply.cpp
+em++ --bind multiply.cpp --js-library multiply_in_js.js -o multiplication.js
