@@ -1,8 +1,12 @@
-#include<iostream>
-using namespace std;
+#include <emscripten/bind.h>
 
-int main()
+using namespace emscripten;
+
+float multiply(float a, float b) 
 {
-	std::cout << "initialized\n";
-	return 0;
+    return a*b;
+}
+
+EMSCRIPTEN_BINDINGS(my_module) {
+    function("multiply", &multiply);
 }

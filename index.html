@@ -1,26 +1,63 @@
 <html>
-	<head><title>Output Page</title></head>
+	<head>
+		<title>Output Page</title>
 	
-	<body bgcolor="PowderBlue">
+		<style >
+			textarea 
+			{
+				width: 100%;
+				height: 50%;
+				font-size: 20px;
+				border: 5px solid dodgerblue;
+			}
+		</style>
+		
+		<style>
+			button 
+			{
+				background-color: dodgerblue;
+				font-color: PowderBlue;
+				border: 20px solid PowderBlue;
+				text-shadow: 3px 2px PowderBlue;
+				font-size: 50px;
+			}
+</style>
+	</head>
+
+	<body>
+		<textarea id="output_area"></textarea>
+					
 		<script>
 			function output(text) 
 			{
-				document.write(text + "\n\n");
+				document.getElementById("output_area").append(text + "\n\n");
 			}
-			
+
 			var Module = 
 			{
 				'print': function (text) 
 				{
-					output("print:\n" + text);
+					output("print\n" + text);
 				},
 
 				'printErr': function (text) 
 				{
-					output("printErr:\n" + text);
+					output("printErr\n" + text);
 				},
 			};
+			
+			function Coordinates(event) 
+			{
+				var x = event.clientX;
+				var y = event.clientY;
+				output("X co-ordinate = " + x + ", Y co-ordinate = " + y + "\nHence " + x + " * " + y + " = " + Module.multiply(x,y) + "\n");
+			}
+			
 		</script>
-		<script src="multiplication1.js"></script>
+			
+		<button type="button" style="width:100%;height:50%" onclick="Coordinates(event)">Click</button>
+		
+		<script src="multiplication2.js"></script>
+		
 	</body>
 </html>
