@@ -1,0 +1,1 @@
+em++ multiply.cpp -o multiplication.js

@@ -1,0 +1,26 @@
+<html>
+	<head><title>Output Page</title></head>
+	
+	<body bgcolor="PowderBlue">
+		<script>
+			function output(text) 
+			{
+				document.write(text + "\n\n");
+			}
+			
+			var Module = 
+			{
+				'print': function (text) 
+				{
+					output("print:\n" + text);
+				},
+
+				'printErr': function (text) 
+				{
+					output("printErr:\n" + text);
+				},
+			};
+		</script>
+		<script src="multiplication1.js"></script>
+	</body>
+</html>
